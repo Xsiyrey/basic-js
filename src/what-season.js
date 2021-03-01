@@ -9,12 +9,10 @@ const seasonName = ["winter", "spring", "summer", "autumn"];
 
 module.exports = function getSeason(date) {
   if (date) {
-    if (date.constructor.name !== "Date") throw new Error();
-    let month = date.getMonth();
-    if (month)
-      return seasonName[season.findIndex((x) => x.some((y) => y === month))];
-    else throw new Error();
+    if (Object.prototype.toString.call(date) !== "[object Date]")
+      throw new Error();
+    return seasonName[
+      season.findIndex((x) => x.some((y) => y === date.getMonth()))
+    ];
   } else return "Unable to determine the time of year!";
-  throw new CustomError("Not implemented");
-  // remove line with error and write your code here
 };
