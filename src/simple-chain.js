@@ -1,6 +1,6 @@
 const chainMaker = {
   getLength() {
-    return this.elements?.length ?? 0;
+    return this.elements && this.elements.length ? this.elements.length : 0;
   },
   addLink(value) {
     if (this.elements) this.elements.push(value);
